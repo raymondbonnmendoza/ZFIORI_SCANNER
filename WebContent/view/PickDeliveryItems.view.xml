@@ -1,0 +1,98 @@
+<mvc:View	
+	controllerName="fioriscan.controller.PickDeliveryItems" 
+	displayBlock="true"
+	xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:core="sap.ui.core"
+	xmlns:l="sap.ui.layout">
+	
+	
+	<Page title ="Pick Items to Scan" showNavButton="true" navButtonPress="onNavBack" class="sapUiContentPadding">
+		
+		<l:HorizontalLayout class="sapUiContentPadding" >
+			<Input
+				id="MaterialInput"
+				placeholder="Material No."
+				enabled="true"
+			>
+			</Input>
+		
+			<Button text="Scan"
+					press="onMaterialScan"
+					enabled="true"
+					id="ScanDelivery"
+					icon="sap-icon://inventory"
+					iconFirst="true">
+				<layoutData>
+					<FlexItemData growFactor="1" />
+				</layoutData>
+			</Button>
+		</l:HorizontalLayout>	
+		
+		<List
+			id="DeliveryItemsList"
+			enableBusyIndicator="true"
+			headerText="Delivery: {screenInput>/deliveryNo}"
+			growing="true"
+			growingThreshold="5"
+			items="{local>/DeliveryItemsListDisplay}">
+			<!-- items="{deliveryItems>/DeliveryItemsListDisplay}">   -->
+<!-- 			// 			items="{/ZDELIVERY_DETAILSSet}"> -->
+<!-- 			mode="Delete"
+			delete="handleDelete" -->
+
+			<CustomListItem id="idCustomListItem" visible="{= ${local>Scanned} === false }">
+				<HBox>
+					<core:Icon size="2rem" src="sap-icon://bar-code" class="sapUiSmallMarginBegin sapUiSmallMarginTopBottom" />
+					<VBox class="sapUiSmallMarginBegin sapUiSmallMarginTopBottom" >
+						<ObjectIdentifier title="Material Number: {local>Material_number}" text="{local>Material_description}" />
+						<Label text="Quantity: {local>Quantity}"/>
+						<ObjectIdentifier title="Batch: {local>Batch}"  />
+					<ObjectStatus
+						class="sapUiSmallMarginBottom"
+						text="Picked | Quantity: {local>Quantity}"
+						icon="sap-icon://product"
+						state="Success" 
+						visible="{= ${local>NewlyScanned} === true }"/>					
+					</VBox>
+					<Button type="Emphasized"
+						text="OK"
+						press="onPress"
+						visible="{= ${local>NewlyScanned} === true }"
+						ariaDescribedBy="acceptButtonDescription genericButtonDescription">
+						<layoutData>
+							<FlexItemData growFactor="1" />
+						</layoutData>
+					</Button>
+
+				</HBox>							
+			</CustomListItem>			
+		<!-- </items> {= ${local>NewlyScanned} === false ? true : false } -->
+
+	</List>
+	
+<!-- 	<l:HorizontalLayout class="sapUiContentPadding" >
+		<Input
+			id="MaterialInput"
+			placeholder="Material No."
+			enabled="true"
+			value="{pickedItemst>/deliveryNo}"
+		>
+		</Input>
+	
+		<Button text="Scan"
+				press="onMaterialScan"
+				enabled="true"
+				id="ScanDelivery">
+			<layoutData>
+				<FlexItemData growFactor="1" />
+			</layoutData>
+		</Button>
+	</l:HorizontalLayout>	 -->
+	
+	</Page>
+
+</mvc:View>
+
+
+		<!-- 	// description="{POSNR}" description="{Material_number}"-->

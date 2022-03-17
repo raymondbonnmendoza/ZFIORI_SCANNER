@@ -1,0 +1,200 @@
+{
+	"_version": "1.9.0",
+	"sap.app": {
+		"id": "fioriscan",
+		"type": "application",
+		"i18n": "i18n/i18n.properties",
+		"title": "{{appTitle}}",
+		"description": "{{appDescription}}",
+		"applicationVersion": {
+			"version": "1.0.0"
+		},
+		"resources": "resources.json",
+		"dataSources": {
+			"mainService": {
+				"uri": "S4_S20/sap/opu/odata/sap/ZSCAN_FIORI_ODATA_SRV_01_SRV",
+				"type": "OData",
+				"settings": {
+					"odataVersion": "2.0",
+					"localUri": "localService/metadata.xml"
+				}
+			},
+			"ZSD_SALESORDER_CREATE_SRV": {
+				"uri": "/sap/opu/odata/sap/ZSD_SALESORDER_CREATE_SRV",
+				"type": "OData",
+				"settings": {
+					"odataVersion": "2.0",
+					"localUri": "localService/ZSD_SALESORDER_CREATE_SRV/metadata.xml"
+				}
+			},
+			"localmodel": {
+				"uri": "model/localmodel",
+				"type": "JSON"
+			}
+		},
+		"sourceTemplate": {
+			"id": "servicecatalog.connectivityComponentForManifest",
+			"version": "0.0.0"
+		}
+	},
+	"sap.ui": {
+		"technology": "UI5",
+		"icons": {
+			"icon": "sap-icon://task",
+			"favIcon": "",
+			"phone": "",
+			"phone@2": "",
+			"tablet": "",
+			"tablet@2": ""
+		},
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		}
+	},
+	"sap.ui5": {
+		"rootView": {
+			"viewName": "fioriscan.view.App",
+			"type": "XML",
+			"async": true,
+			"id": "app"
+		},
+		"dependencies": {
+			"minUI5Version": "1.44",
+			"libs": {
+				"sap.m": {},
+				"sap.ui.core": {},
+				"sap.ui.layout": {
+					"minVersion": ""
+				},
+				"sap.ushell": {
+					"minVersion": ""
+				}
+			}
+		},
+		"contentDensities": {
+			"compact": true,
+			"cozy": true
+		},
+		"models": {
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"settings": {
+					"bundleName": "fioriscan.i18n.i18n"
+				}
+			},
+			"": {
+				"type": "sap.ui.model.odata.v2.ODataModel",
+				"dataSource": "mainService"
+			},
+			"localmodel": {
+				"type": "sap.ui.model.json.JSONModel",
+				"dataSource": "localmodel"
+			}
+		},
+		"resources": {
+			"css": [
+				{
+					"uri": "css/octawot.css"
+				}
+			]
+		},
+		"routing": {
+			"config": {
+				"routerClass": "sap.m.routing.Router",
+				"viewType": "XML",
+				"viewPath": "fioriscan.view",
+				"controlId": "app",
+				"controlAggregation": "pages",
+				"bypassed": {
+					"target": [
+						"notFound"
+					]
+				},
+				"async": true
+			},
+			"routes": [
+				{
+					"pattern": "",
+					"name": "scannermenu",
+					"target": [
+						"Page1"
+					]
+				},
+				{
+					"pattern": "ScanDelivery/{activity}",
+					"name": "scandelivery",
+					"target": [
+						"Page2"
+					]
+				},
+				{
+					"pattern": "PickDeliveryItems/{activity},{deliverynumber}",
+					"name": "pickdelitems",
+					"target": [
+						"Page3"
+					]
+				},
+				{
+					"pattern": "PackDeliveryItems/{activity},{deliverynumber}",
+					"name": "packdelitems",
+					"target": [
+						"Page4"
+					]
+				},
+				{
+					"pattern": "Confirmation/{activity},{deliverynumber}",
+					"name": "confirmation",
+					"target": [
+						"Page5"
+					]
+				}
+			],
+			"targets": {
+				"Page1": {
+					"viewName": "ScannerMenu",
+					"viewId": "ScannerMenu",
+					"viewLevel": 1,
+					"title": "{i18n>ScannerMenuViewTitle}"
+				},
+				"Page2": {
+					"viewName": "ScanDelivery",
+					"viewId": "scandelivery",
+					"viewLevel": 2,
+					"title": "{i18n>ScanDeliveryViewTitle}"
+				},
+				"Page3": {
+					"viewName": "PickDeliveryItems",
+					"viewId": "pickdelitems",
+					"viewLevel": 3,
+					"title": "{i18n>ScanDeliveryViewTitle}"
+				},
+				"Page4": {
+					"viewName": "PackDeliveryItems",
+					"viewId": "packdelitems",
+					"viewLevel": 4,
+					"title": "{i18n>PackDeliveryViewTitle}"
+				},
+				"Page5": {
+					"viewName": "Confirmation",
+					"viewId": "confirmation",
+					"viewLevel": 5,
+					"title": "{i18n>PackDeliveryViewTitle}"
+				},
+				"objectNotFound": {
+					"viewName": "ObjectNotFound",
+					"viewId": "objectNotFound"
+				},
+				"notFound": {
+					"viewName": "NotFound",
+					"viewId": "notFound"
+				}
+			}
+		}
+	},
+	"sap.platform.hcp": {
+		"uri": "WebContent",
+		"_version": "1.1.0"
+	}
+}

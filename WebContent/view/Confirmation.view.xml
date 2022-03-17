@@ -1,0 +1,34 @@
+<mvc:View
+	controllerName="fioriscan.controller.Confirmation"
+	displayBlock="true"
+	xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc">
+	
+	<Page title="Packing Confirmation">
+		<MessageStrip
+			text="Success Message"
+			type="Success"
+			showIcon="true"
+			customIcon="sap-icon://product"
+			class="sapUiMediumMarginBottom"
+			id="PackConf1">
+		</MessageStrip>
+		
+
+		
+		<footer>
+			<Toolbar>
+				<ToolbarSpacer/>
+					<Button text="OK"
+							press="onPress"
+							type="Emphasized"
+							ariaDescribedBy="comingSoonButtonDescription genericButtonDescription"
+							enabled="true">
+						<layoutData>
+							<FlexItemData growFactor="1" />
+						</layoutData>
+					</Button>
+			</Toolbar>
+		</footer>
+	</Page>
+</mvc:View>

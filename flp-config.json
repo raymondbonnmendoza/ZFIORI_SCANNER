@@ -1,0 +1,35 @@
+{
+    "application": {
+        "id": "",
+        "title": "fioriscan.ZFIORI_SCANNER1",
+        "description": "Scanner Pick and Pack",
+        "type": "SAP_UI5_Component",
+        "componentUrl": "/WebContent",
+        "appUrl": "#ZFIORI_SCANNER1-Display",
+        "navigationComponentName": "fioriscan",
+        "intentSemanticObject": "ZFIORI_SCANNER1",
+        "intentAction": "Display",
+        "html5ApplicationName": "zfioriscanner1",
+        "HCPParentApplicationName": ""
+    },
+    "assignment": {
+        "groups": [
+            "6025d0fd-959c-44cf-aba8-dd89045015e9"
+        ],
+        "contentPackages": [
+            "d164acb9-321f-4d2e-8b86-cf6bf78c8433"
+        ],
+        "categories": []
+    },
+    "tile": {
+        "type": "StaticTile",
+        "title": "Scanner Pick and Pack",
+        "subtitle": "Demo",
+        "searchKeywords": "Scanner Pick and Pack,Demo",
+        "displayIconUrl": "sap-icon://approvals",
+        "displayInfoText": "",
+        "size": "1x1",
+        "serviceURL": "",
+        "refreshInterval": ""
+    }
+}

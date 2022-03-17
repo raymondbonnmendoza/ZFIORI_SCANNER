@@ -1,0 +1,51 @@
+<mvc:View	
+    controllerName="fioriscan.controller.PackDeliveryItems" 
+	displayBlock="true"
+	xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:core="sap.ui.core"
+	xmlns:l="sap.ui.layout">
+	
+	
+	<Page title ="{i18n>PackDeliveryViewTitle}" showNavButton="true" navButtonPress="onNavBack" class="sapUiContentPadding">
+		
+		<List
+			id="PackedItemsList"
+			enableBusyIndicator="true"
+			headerText="Delivery: {screenInput>/deliveryNo}"
+			growing="true"
+			growingThreshold="5"
+			items="{local>/PickedItemsListDisplay}">
+
+		<!-- 	<CustomListItem id="idCustomListItem" visible="{= ${local>Pick} === true }"> -->
+			<CustomListItem id="idCustomListItem" >
+				<HBox>
+					<core:Icon size="2rem" src="sap-icon://bar-code" class="sapUiSmallMarginBegin sapUiSmallMarginTopBottom" />
+					<VBox class="sapUiSmallMarginBegin sapUiSmallMarginTopBottom" >
+						<ObjectIdentifier title="Material Number: {local>Material_number}" text="{local>Material_description}" />
+						<Label text="Quantity: {local>Quantity}"/>
+						<ObjectIdentifier title="Batch: {local>Batch}"  />
+						<ObjectStatus
+							class="sapUiSmallMarginBottom"
+							text="Picked | Quantity: {local>Quantity}"
+							icon="sap-icon://product"
+							state="Success" />							
+						</VBox>
+				</HBox>							
+			</CustomListItem>			
+		</List>
+		
+		<Button type="Default"
+				text="Pack"
+				press="onPackPress"
+				iconFirst="true"
+				icon="sap-icon://product"
+				ariaDescribedBy="acceptButtonDescription genericButtonDescription">
+			<layoutData>
+				<FlexItemData growFactor="1" />
+			</layoutData>
+		</Button>
+		
+	</Page>
+
+</mvc:View>

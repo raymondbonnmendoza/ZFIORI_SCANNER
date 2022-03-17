@@ -1,0 +1,72 @@
+<mvc:View
+	controllerName="fioriscan.controller.ScanDelivery"
+	xmlns:l="sap.ui.layout"
+	displayBlock="true"
+	xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc">
+	
+	<Page title ="Scan Delivery to Pack" showNavButton="true" navButtonPress="onNavBack">
+		<l:VerticalLayout class="sapUiContentPadding" width="100%">
+			<Label text="Delivery" labelFor="DeliveryNo" visible="false"/>
+			<Input
+				id="DeliveryNo"
+				placeholder="Delivery No."
+				showSuggestion="false"
+				showValueHelp="false"
+				enabled="false"
+				value="{screenInput>/deliveryNo}" 
+				valueLiveUpdate="true">	<!--  copy parsed delivery number here / parsed del number -->
+			</Input>
+		</l:VerticalLayout>
+		
+		
+<!-- 		<l:HorizontalLayout class="sapUiContentPadding" >
+			<Input
+				id="DeliveryInput"
+				placeholder="Delivery Input"
+				enabled="true"
+				value="{screenInput>/barcodeNumber}"
+				submit="onTypeDelivery">
+			</Input>
+		
+			<Button text="Scan"
+					press="onDeliveryScan"
+					enabled="true"
+					id="ScanDelivery"
+					icon="sap-icon://shipping-status"
+					iconFirst="true">
+				<layoutData>
+					<FlexItemData growFactor="1" />
+				</layoutData>
+			</Button>
+		</l:HorizontalLayout> -->
+		
+		<footer>
+			<Toolbar>
+				<ToolbarSpacer/>
+					<l:HorizontalLayout class="sapUiContentPadding" >
+						<Input
+							id="DeliveryInput"
+							placeholder="Delivery Input"
+							enabled="true"
+							value="{screenInput>/barcodeNumber}"
+							submit="onTypeDelivery">
+						</Input>
+					
+						<Button text="Scan"
+								press="onDeliveryScan"
+								enabled="true"
+								id="ScanDelivery"
+								icon="sap-icon://shipping-status"
+								iconFirst="true"
+								type="Emphasized">
+							<layoutData>
+								<FlexItemData growFactor="1" />
+							</layoutData>
+						</Button>
+					</l:HorizontalLayout>
+			</Toolbar>
+		</footer>
+	</Page>
+	
+</mvc:View>

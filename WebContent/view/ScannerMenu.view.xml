@@ -1,0 +1,59 @@
+<mvc:View
+	controllerName="fioriscan.controller.ScannerMenu"
+	xmlns:l="sap.ui.layout"
+	displayBlock="true"
+	xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc">
+	
+	<Page title ="Scanner Main Menu">
+			<content>
+				<l:VerticalLayout class="sapUiContentPadding">
+					
+					<HBox>	
+						<Button text="Pack"
+								press="onPack"
+								enabled="true"
+								id="Actvt1"
+								type="Emphasized">
+							<layoutData>
+								<FlexItemData growFactor="1" />
+							</layoutData>
+						</Button>
+						<Button text="GR"
+								press="onGR"
+								enabled="false"
+								id="Actvt2"
+								type="Emphasized">
+							<layoutData>
+								<FlexItemData growFactor="1" />
+							</layoutData>
+						</Button>
+					</HBox>
+			
+					<HBox>	
+						<Button text="Unpack"
+								press="onUnpack"
+								enabled="false"
+								id="Actvt3"
+								type="Emphasized">
+							<layoutData>
+								<FlexItemData growFactor="1" />
+							</layoutData>
+						</Button>
+						<Button text="TO Confirm"
+								press="onTOConfirm"
+								enabled="false"
+								id="Actvt4"
+								type="Emphasized">
+							<layoutData>
+								<FlexItemData growFactor="1" />
+							</layoutData>
+						</Button>
+					</HBox>
+		
+					
+				</l:VerticalLayout>
+			</content>
+	</Page>
+	
+</mvc:View>

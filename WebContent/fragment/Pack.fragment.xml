@@ -1,0 +1,25 @@
+<core:FragmentDefinition
+	xmlns:core="sap.ui.core"
+	xmlns="sap.m"
+	xmlns:l="sap.ui.layout"
+>
+
+	<l:HorizontalLayout class="sapUiContentPadding" >
+		<Input
+			id="HUInput"
+			placeholder="Handling Unit No."
+			enabled="true"
+		>
+		</Input>
+	
+		<Button text="Scan"
+				press="onPack"
+				enabled="true"
+				id="idPacktoHU">
+			<layoutData>
+				<FlexItemData growFactor="1" />
+			</layoutData>
+		</Button>
+	</l:HorizontalLayout>	
+	
+</core:FragmentDefinition>
